@@ -828,7 +828,7 @@ exports.generateSchema = generateSchema;
 function programFromConfig(configFileName) {
     var result = ts.parseConfigFileTextToJson(configFileName, ts.sys.readFile(configFileName));
     var configObject = result.config;
-    var configParseResult = ts.parseJsonConfigFileContent(configObject, ts.sys, path.dirname(configFileName), {}, configFileName);
+    var configParseResult = ts.parseJsonConfigFileContent(configObject, ts.sys, path.dirname(configFileName), {}, path.basename(configFileName));
     var options = configParseResult.options;
     options.noEmit = true;
     delete options.out;
